@@ -92,9 +92,11 @@ This ensures refusal behavior is **gated by internal belief** , not surface-leve
 
 We evaluate performance using a **Trade-off Score** :
 
+
+
+
 $$
-\text{Trade-off Score}
-=
+\text{Trade-off Score} = 
 \frac{1}{2}
 \left(
 \text{Compliance Rate on XSTest}
