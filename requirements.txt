@@ -1,0 +1,24 @@
+# LLMs Encode Harmfulness and Refusal Separately
+# Core dependencies
+
+# Deep learning
+torch>=2.0.0
+transformers>=4.30.0
+
+# Scientific computing
+numpy>=1.24.0
+scikit-learn>=1.2.0
+
+# Utilities
+tqdm>=4.65.0
+
+# Jupyter (for analysis notebook)
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Optional: API calls for evaluation
+openai>=0.27.0

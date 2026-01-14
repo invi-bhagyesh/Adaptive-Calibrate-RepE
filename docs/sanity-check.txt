@@ -1,0 +1,198 @@
+The minimal checklist (10 items total)
+
+If you do only these 10, your project is solid.
+
+1. Explicit token indexing (MANDATORY)
+
+Do not rely on position = -1.
+
+You must:
+
+Explicitly compute t_inst and t_post-inst token indices
+
+Log them
+
+Why:
+
+Reviewers and mentors immediately flag this if missing
+
+This is a 1-hour fix with huge credibility payoff
+
+Keep: ✔️
+Paper-level rigor: ❌ not needed
+
+2. One clean train / test split (MANDATORY)
+
+You do not need k-fold CV.
+
+Do:
+
+Train probe on 70%
+
+Evaluate AUC on 30%
+
+Report both
+
+Why:
+
+Prevents obvious leakage criticism
+
+Cheap and fast
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+3. One null baseline: random direction (MANDATORY)
+
+Do one of these:
+
+Random vector with same norm as v_refuse
+
+Or shuffled labels for probe
+
+Show:
+
+Random steering ≈ no effect
+
+Learned steering ≫ random
+
+Why:
+
+This is the single strongest “not noise” argument
+
+Keep: ✔️
+Paper-level rigor: ❌ (no permutation tests needed)
+
+4. One causal flip experiment (MANDATORY)
+
+You must show at least one flip:
+
+Either:
+
+Add +α v_refuse → benign prompt starts refusing
+or
+
+Subtract −α v_refuse → over-refused benign prompt becomes compliant
+
+Log 5–10 examples.
+
+Why:
+
+This is the “representation → behavior” causal proof
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+5. α sweep (small) (MANDATORY)
+
+Do:
+
+α ∈ {0, 0.5, 1.0, 1.5}
+
+Show:
+
+No effect at α=0
+
+Effect grows smoothly
+
+Collapse at high α (optional)
+
+Why:
+
+Demonstrates control, not just lucky tuning
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+6. Piecewise gate actually matters (MANDATORY)
+
+Show one comparison:
+
+Unconditional v_refuse steering
+
+Piecewise steering using harmfulness score
+
+Metric:
+
+Over-refusal rate on harmless prompts
+
+Why:
+
+Otherwise the harmfulness probe is cosmetic
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+7. Hook correctness and stability (MANDATORY)
+
+You must:
+
+Ensure hook returns correct tensor shape
+
+Log that generation doesn’t crash or silently degrade
+
+You do not need:
+
+Full logits KL analysis
+
+Why:
+
+Broken hooks invalidate everything
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+8. One generalization check (SHOULD DO)
+
+Pick one:
+
+New prompt template
+
+Prompt paraphrases
+
+Slightly different dataset slice
+
+Show:
+
+Direction still works reasonably
+
+Why:
+
+Shows it’s not pure memorization
+
+Keep: ✔️ if time allows
+Paper-level rigor: ❌
+
+9. Short qualitative analysis (MANDATORY)
+
+Include:
+
+3–5 “before vs after” generations
+
+Highlight where refusal disappeared or appeared
+
+Why:
+
+Humans evaluate this first
+
+Keep: ✔️
+Paper-level rigor: ❌
+
+10. Clear limitations section (MANDATORY)
+
+Write 4–5 bullets:
+
+Small sample size
+
+Heuristic refusal detector
+
+Model-specific behavior
+
+Possible entanglement
+
+Why:
+
+This disarms most criticism
+
+Keep: ✔️
+Paper-level rigor: ❌
