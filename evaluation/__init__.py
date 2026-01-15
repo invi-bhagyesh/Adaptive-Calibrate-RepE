@@ -1,20 +1,13 @@
-# Evaluation module for metrics and threshold selection
-from .metrics import (
-    compute_metrics,
-    compare_baseline_steered,
-    detect_refusal,
-    generate_report,
-)
-from .choose_tau import (
-    find_optimal_thresholds,
-    compute_metrics_at_threshold,
-)
+"""
+Evaluation Module - Metrics, tau selection, and comparison.
+"""
+from .metrics import compute_metrics, compare_results, detect_refusal
+from .choose_tau import find_optimal_tau, compute_metrics_at_tau
 
 __all__ = [
-    'compute_metrics',
-    'compare_baseline_steered',
-    'detect_refusal',
-    'generate_report',
-    'find_optimal_thresholds',
-    'compute_metrics_at_threshold',
+    "compute_metrics",
+    "compare_results",
+    "detect_refusal",
+    "find_optimal_tau",
+    "compute_metrics_at_tau",
 ]
