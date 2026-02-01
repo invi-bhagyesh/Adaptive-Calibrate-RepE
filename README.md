@@ -4,15 +4,13 @@
 
 Large Language Models (LLMs) frequently exhibit **over-refusal** , rejecting benign user requests that merely _sound_ harmful, while still remaining vulnerable to sophisticated jailbreaks. Recent work has shown that LLMs encode **harmfulness** and **refusal behavior** as **distinct internal representations** , localized at different token positions in the forward pass.
 
-This project builds on the findings of _LLMs Encode Harmfulness and Refusal Separately_ (Zhao et al., NeurIPS 2025) and moves beyond static analysis to implement a **runtime representation-engineering system** called **Adaptive Safety Calibration** .
+Builds on the findings of _LLMs Encode Harmfulness and Refusal Separately_ (Zhao et al., NeurIPS 2025) and moves beyond static analysis to implement a **runtime representation-engineering system** called **Adaptive Safety Calibration** .
 
-Instead of globally suppressing refusal mechanisms, we introduce a **context-aware control policy** that:
+Instead of globally suppressing refusal mechanisms, a **context-aware control policy** that:
 
 - reads the model’s internal belief about harmfulness,
 - conditionally modulates refusal behavior,
 - reduces over-refusal **without disabling safety** for genuinely dangerous prompts.
-
-This project is **training-free** , data-efficient, and designed to be extensible into parameter-efficient adapters.
 
 ---
 
@@ -168,9 +166,3 @@ adaptive-safety-calibration/
 ```
 
 ---
-
-## Summary
-
-**Adaptive Safety Calibration** demonstrates that safety failures in LLMs are not inevitable trade-offs but often arise from misaligned internal control logic. By reading and respecting the model’s own latent belief about harmfulness, we can reduce over-refusal while preserving robust safety guarantees.
-
-This project serves as a minimal, principled example of **representation engineering for AI safety** .
