@@ -21,7 +21,6 @@ python scripts/run_inference.py \
     --input "$INPUT_PTH" \
     --output "$OUTPUT_PTH" \
     --model_type "$MODEL_TYPE" \
-    --max_new_tokens 256 \
-    --batch_size 1
+    --max_new_tokens 256
 
 echo "Inference complete!"
