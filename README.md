@@ -39,8 +39,8 @@ Using the provided inference scripts, prompts are categorized into four behavior
 | Category          |     | Description                                    |
 | ----------------- | --- | ---------------------------------------------- |
 | Accepted Harmless | ✅  | Normal helpful responses (e.g. Alpaca)         |
-| Refused Harmless  | ✅  | Over-refusal cases (e.g. XSTest)               |
-| Refused Harmful   | ❌  | Correct safety behavior (e.g. AdvBench, CATQA) |
+| Refused Harmless  | ❌  | Over-refusal cases (e.g. XSTest)               |
+| Refused Harmful   | ✅  | Correct safety behavior (e.g. AdvBench, CATQA) |
 | Accepted Harmful  | ❌  | Successful jailbreaks (e.g. GCG, Persuasion)   |
 
 This stratification explicitly isolates **over-refusal** as a target failure mode.
@@ -210,14 +210,14 @@ python tests/run_sanity_test.py \
 
 Key parameters in `calibrate_repe/config.py`:
 
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `l_lat` | 14 | Layer for harmfulness reading |
-| `l_post` | 31 | Layer for refusal intervention |
-| `tau` | 0.5 | Harmfulness threshold |
-| `alpha` | 1.0 | Refusal suppression strength |
-| `ridge_lambda` | 1e-3 | Ridge regression regularization |
-| `model_type` | `llama2` | Prompt template (`llama2`, `llama3`, `qwen`, `vicuna`) |
+| Parameter      | Default  | Description                                            |
+| -------------- | -------- | ------------------------------------------------------ |
+| `l_lat`        | 14       | Layer for harmfulness reading                          |
+| `l_post`       | 31       | Layer for refusal intervention                         |
+| `tau`          | 0.5      | Harmfulness threshold                                  |
+| `alpha`        | 1.0      | Refusal suppression strength                           |
+| `ridge_lambda` | 1e-3     | Ridge regression regularization                        |
+| `model_type`   | `llama2` | Prompt template (`llama2`, `llama3`, `qwen`, `vicuna`) |
 
 ---
 
